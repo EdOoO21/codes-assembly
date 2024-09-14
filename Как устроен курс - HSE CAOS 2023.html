@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://caos2024.myltsev.ru/lectures/ -->
+<html lang="ru" class="navy" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Как устроен курс - HSE CAOS 2023</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgb(22, 25, 35)">
+
+        <link rel="icon" href="https://caos2024.myltsev.ru/lectures/favicon.svg">
+        <link rel="shortcut icon" href="https://caos2024.myltsev.ru/lectures/favicon.png">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/variables.css">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/general.css">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/chrome.css">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/font-awesome.css">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/highlight.css" disabled="">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/tomorrow-night.css">
+        <link rel="stylesheet" href="./Как устроен курс - HSE CAOS 2023_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async="" src="./Как устроен курс - HSE CAOS 2023_files/MathJax.js.Без названия"></script>
+    <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body class="js sidebar-hidden"><div id="MathJax_Message" style="display: none;"></div>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="true">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://caos2024.myltsev.ru/lectures/01-course.html" class="active" tabindex="-1">Как устроен курс</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/02-computers.html" tabindex="-1"><strong aria-hidden="true">1.</strong> Компьютеры</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/03-integers.html" tabindex="-1"><strong aria-hidden="true">2.</strong> Целые числа</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/04-assembly.html" tabindex="-1"><strong aria-hidden="true">3.</strong> Язык ассемблера</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/05-jumps.html" tabindex="-1"><strong aria-hidden="true">3.1.</strong> Переходы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/06-nand2cpu.html" tabindex="-1"><strong aria-hidden="true">3.2.</strong> Как сделать CPU из транзисторов</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/07-memory.html" tabindex="-1"><strong aria-hidden="true">3.3.</strong> Обращение к памяти</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/08-call-ret/08-call-ret.html" tabindex="-1"><strong aria-hidden="true">3.4.</strong> Подпрограммы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/09-elf/index.html" tabindex="-1"><strong aria-hidden="true">3.5.</strong> Компоновка</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/x1-cpu-internals/index.html" tabindex="-1"><strong aria-hidden="true">3.6.</strong> Внутренности современных процессоров</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/10-c/index.html" tabindex="-1"><strong aria-hidden="true">4.</strong> Язык Си</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/11-c-continued/index.html" tabindex="-1"><strong aria-hidden="true">4.1.</strong> Динамическая память</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/12-c-bit-twiddling/index.html" tabindex="-1"><strong aria-hidden="true">4.2.</strong> Bits and pieces</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/18-floating-point-arithmetic/index.html" tabindex="-1"><strong aria-hidden="true">5.</strong> Вещественные числа</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/18-x86-floating-point/index.html" tabindex="-1"><strong aria-hidden="true">5.1.</strong> Поддержка на x86: FPU, MMX, SSE, AVX</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/ipr/index.html" tabindex="-1"><strong aria-hidden="true">6.</strong> ИПР</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/ipr/git/git.html" tabindex="-1"><strong aria-hidden="true">6.1.</strong> Git</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/ipr/build/build.html" tabindex="-1"><strong aria-hidden="true">6.2.</strong> Системы сборки</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/ipr/containers/containers.html" tabindex="-1"><strong aria-hidden="true">6.3.</strong> Контейнеры</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/yabloko/index.html" tabindex="-1"><strong aria-hidden="true">7.</strong> «Системное программирование»</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/yabloko/io/index.html" tabindex="-1"><strong aria-hidden="true">7.1.</strong> Взаимодействие с устройствами</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/yabloko/interrupts/Interrupts.html" tabindex="-1"><strong aria-hidden="true">7.2.</strong> Прерывания</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/yabloko/rings/rings.html" tabindex="-1"><strong aria-hidden="true">7.3.</strong> Кольца защиты</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/index.html" tabindex="-1"><strong aria-hidden="true">8.</strong> POSIX</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/files/index.html" tabindex="-1"><strong aria-hidden="true">8.1.</strong> Файлы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/processes/index.html" tabindex="-1"><strong aria-hidden="true">8.2.</strong> Процессы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/mmap/mmap.html" tabindex="-1"><strong aria-hidden="true">8.3.</strong> Страничная виртуальная память</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/users/users.html" tabindex="-1"><strong aria-hidden="true">8.4.</strong> Пользователи и группы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/signals/index.html" tabindex="-1"><strong aria-hidden="true">8.5.</strong> Сигналы</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/file-descriptions/file-descriptions.html" tabindex="-1"><strong aria-hidden="true">8.6.</strong> File descriptions</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/pipes/pipes.html" tabindex="-1"><strong aria-hidden="true">8.7.</strong> Каналы (pipes)</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/posix/file-system/index.html" tabindex="-1"><strong aria-hidden="true">8.8.</strong> Файловая система</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/dynamic-linking/index.html" tabindex="-1"><strong aria-hidden="true">9.</strong> Динамическая компоновка</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/22-sockets/index.html" tabindex="-1"><strong aria-hidden="true">10.</strong> Сети и сокеты</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/23-mplex/mplex.html" tabindex="-1"><strong aria-hidden="true">10.1.</strong> Мультиплексирование</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/25-shared-mem/index.html" tabindex="-1"><strong aria-hidden="true">11.</strong> Работа с общей памятью</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/26-parallel-2/index.html" tabindex="-1"><strong aria-hidden="true">11.1.</strong> RMW</a></li></ol></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/gpu/gpu.html" tabindex="-1"><strong aria-hidden="true">12.</strong> Использование GPU</a></li><li class="chapter-item expanded "><a href="https://caos2024.myltsev.ru/lectures/exam/exam.html" tabindex="-1"><strong aria-hidden="true">13.</strong> Темы экзамена по ОС</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="false">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme theme-selected" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">HSE CAOS 2023</h1>
+
+                    <div class="right-buttons">
+                        <a href="https://caos2024.myltsev.ru/lectures/print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="О-чём-курс"><a class="header" href="https://caos2024.myltsev.ru/lectures/#%D0%9E-%D1%87%D1%91%D0%BC-%D0%BA%D1%83%D1%80%D1%81">О чём курс</a></h2>
+<p>Мы умеем писать функционирующие программы на ЯВУ:</p>
+<ul>
+<li>пишем текст программы;</li>
+<li>компилятор делает из него исполняемый файл</li>
+<li>(и у компилятора есть настройка "оптимизировать" программу);</li>
+<li>исполняемый файл можно запустить на исполнение;</li>
+<li>программа выполняется именно так, как в ней написано;</li>
+<li>на компьютере вместе работают много программ;</li>
+<li>они обращаются к устройствам и используют вычислительные ресурсы;</li>
+<li>есть даже Интернет, где можно смотреть котиков в Ютюбе.</li>
+</ul>
+<p>Все шаги, кроме первого, нуждаются в более подробном рассмотрении.</p>
+<h2 id="Как-устроен-курс"><a class="header" href="https://caos2024.myltsev.ru/lectures/#%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD-%D0%BA%D1%83%D1%80%D1%81">Как устроен курс</a></h2>
+<p>Курс разделён на две половины: «Архиктектура компьютера» (1–2 модули) и «Операционные системы
+и промышленная разработка» (3–4 модули).</p>
+<p>Раз в неделю читается одна или две лекции,
+после них, как правило, выдаётся ДЗ — 5 задач
+начальной стоимостью 100 баллов каждая.
+Через 2 недели после лекции (23:59:59 пятницы) стоимость задач
+уменьшается до 50 баллов. Такая стоимость
+остаётся до конца семестра.</p>
+<p>Задачи проверяются автоматическими тестами в системе ejudge.
+В общем случае, штраф за неверную
+посылку (не прошедшую тесты) — 1 балл (но лучше ориентироваться на Run penalty).</p>
+<p>Часть задач будет подвергаться code review: преподаватели и ассистенты
+будут требовать что-то исправить в решении. Пока вы не прислали исправление,
+баллы за задачу не учитываются.</p>
+<p>Время от времени запускается проверка решений на плагиат. Случаи списывания
+расследуются, по результатам могут быть обнулены баллы за соответствующий
+контест или направлена служебная записка в УО. Попытки сломать тестирующую
+систему тоже приводят к неприятным последствиям.</p>
+<h2 id="Контрольные-мероприятия"><a class="header" href="https://caos2024.myltsev.ru/lectures/#%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F">Контрольные мероприятия</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Когда</th><th>Что</th><th>По какому материалу</th></tr></thead><tbody>
+<tr><td>В конце 1-го модуля</td><td>контрольная работа</td><td>по материалам 1 модуля</td></tr>
+<tr><td>В конце 2-го модуля</td><td>экзамен</td><td>по 1-му и 2-му модулям</td></tr>
+<tr><td>В конце 3-го модуля</td><td>контрольная работа</td><td>по материалам 3 модуля</td></tr>
+<tr><td>В конце 4-го модуля</td><td>экзамен</td><td>по 3-му и 4-му модулям</td></tr>
+</tbody></table>
+</div>
+<p>Экзамены и контрольные работы представляют собой контесты в ejudge, в которые
+кроме задач добавлено ещё несколько тестов на теорию.</p>
+<h2 id="Формула-оценки"><a class="header" href="https://caos2024.myltsev.ru/lectures/#%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0-%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B8">Формула оценки</a></h2>
+<p>Общая идея: оценка за курс складывается из накопленной оценки (за ДЗ и КР)
+с весом 0.6 и оценки за экзамен с весом 0.4.</p>
+<p>Частности:</p>
+<ul>
+<li>накопленная оценка (дробная, от 0 до 10) складывается из оценки за ДЗ (от 0 до 9) и оценки за семинары (от 0 до 1 на усмотрение преподавателя);</li>
+<li>оценка за ДЗ дробная, от 0 до 9 баллов, точная формула вскоре появится на вики.</li>
+</ul>
+<p>«Автомат» выдаётся, если оценки за ДЗ и семинары не ниже некоторых пороговых значений, которые будут объявлены дополнительно.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="https://caos2024.myltsev.ru/lectures/02-computers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="https://caos2024.myltsev.ru/lectures/02-computers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="./Как устроен курс - HSE CAOS 2023_files/elasticlunr.min.js.Без названия"></script>
+        <script src="./Как устроен курс - HSE CAOS 2023_files/mark.min.js.Без названия"></script>
+        <script src="./Как устроен курс - HSE CAOS 2023_files/searcher.js.Без названия"></script>
+
+        <script src="./Как устроен курс - HSE CAOS 2023_files/clipboard.min.js.Без названия"></script>
+        <script src="./Как устроен курс - HSE CAOS 2023_files/highlight.js.Без названия"></script>
+        <script src="./Как устроен курс - HSE CAOS 2023_files/book.js.Без названия"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    
+
+</body></html>
