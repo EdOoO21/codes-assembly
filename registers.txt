@@ -8,6 +8,9 @@ call readi64    // ввести с клавиатуры число и сохра
 call finish     // завершить исполнение программы
 
 
+
+
+
 # Create .kks-workspace in current directory to mark kks workspace root
 kks init
 
