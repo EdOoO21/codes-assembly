@@ -6,3 +6,80 @@ call writei64   // вывести rdi
 call readi32    // ввести с клавиатуры число и сохранить в eax
 call readi64    // ввести с клавиатуры число и сохранить в rax
 call finish     // завершить исполнение программы
+
+
+# Create .kks-workspace in current directory to mark kks workspace root
+kks init
+
+# Auth in ejudge
+kks auth
+# Dont store password in plaintext
+kks auth --no-store-password
+
+# Parse tasks from ejudge and create directories with template solutions
+kks sync
+# Set max line width for statements (default 100)
+MDWIDTH=70 kks sync
+# Sync tasks and (latest) submissions
+kks sync --code
+
+# Show tasks status and user standings
+kks status
+kks status sm01 sm02-3
+kks top
+
+# Build and run solution in current directory
+cd sm01/1/
+kks run
+kks run --sample
+kks run --test 10
+kks run < input.txt
+
+# build without stdlib
+cd sm10/2
+kks run -T nostd
+# build without stdlib (force 32-bit mode)
+kks run -T nostd32
+
+# Format solution using clang-format
+kks lint
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+# Generate tests/001.in - tests/100.in using gen.py
+# Generate tests/001.out - tests/100.out using solve.py
+kks gen --range 1 100
+# Generate test tests/123.{in,out}
+kks gen --test 123
+# Only generate *.out files (don't overwrite *.in)
+# Useful if you entered tests manually and want to generate correct output
+kks gen --range 1 10 --output-only
+# Generate tests [1; 50] using gen.sh and other_solve.py, overwriting existing tests
+kks gen --generator gen.sh --solution other_solve.py --range 1 50 --force
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+# Test solution
+kks test
+# Dont stop on error
+kks test --continue
+# Run solution on sample
+kks test --sample
+# Run solution on tests [1, 10]
+kks test --range 1 10
+kks test --test 15 -test 16
+
+# Submit a solution (problem and solution are auto-detected)
+# There will be a confirmation before every submit, to avoid accidental submits
+kks submit
+# Manually specify problem and source file
+kks submit -p sm02-3 ./code/main.c
+
+# Hide contest directory (move to .kks-contests)
+kks hide sm01
+kks hide --all
+kks unhide sm03 kr01
