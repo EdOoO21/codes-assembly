@@ -7,8 +7,16 @@ call readi32    // ввести с клавиатуры число и сохра
 call readi64    // ввести с клавиатуры число и сохранить в rax
 call finish     // завершить исполнение программы
 
+gdb
 
-
+la next
+la layout
+enter to repeat last cmd
+ctrl + l to refresh
+ctrl + x + o to change window
+la src
+в eflag лежат поднятые флаги
+можно писать n а не next И по аналогии с другими
 
 
 # Create .kks-workspace in current directory to mark kks workspace root
@@ -75,6 +83,12 @@ kks test --sample
 # Run solution on tests [1, 10]
 kks test --range 1 10
 kks test --test 15 -test 16
+
+
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 # Submit a solution (problem and solution are auto-detected)
 # There will be a confirmation before every submit, to avoid accidental submits
