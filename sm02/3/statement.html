@@ -1,0 +1,35 @@
+<html><head><meta charset="utf-8"/></head>
+<body>
+<table border="1"><tr><td><b>Time limit:</b></td><td><tt>1 s</tt></td></tr>
+<tr><td><b>Real time limit:</b></td><td><tt>5 s</tt></td></tr>
+<tr><td><b>Memory limit:</b></td><td><tt>4G</tt></td></tr>
+</table>
+<h3>Problem sm02-3: asm/gdb/try-fix-1</h3>
+<p>Вам дана программа считывающая одно 64 битное число X и печатающая X + delta.</p>
+<p>Напишите последовательность команд GDB такие, что программа запустится, считает и выведет число, но delta станет 100500.</p>
+<pre>
+    .intel_syntax noprefix
+    .global main
+main:
+    call  readi64
+    mov   rdi, rax
+    add   rdi, [rip + delta]
+    call  writei64
+    call  finish
+delta:
+    .quad 42
+        </pre>
+<p>Вам могут пригодиться:</p>
+<ol>
+<li><code>break func</code> - установление брейкпоинтана на функцию</li>
+<li><code>run</code> - запуск программы</li>
+<li><code>continue</code> - продолжение выполнения при остановке на брейкпоинте</li>
+<li><code>stepi</code> - переход к следующей инструкции (в том числе переход по вызову функций)</li>
+<li><code>nexti</code> - переход к следующей инструкции (игнорируя вызовы функций)</li>
+<li><code>print</code> - напечатать произвольное си-подобное выражение</li>
+<li><a href="https://visualgdb.com/gdbreference/commands/print">Документация GDB</a></li>
+</ol>
+<p>P.S. Заметим что print интерпретирует произвольное си выражение. В том числе и выражение меняющее исполнение/данные. Попробуйте использовать метку delta как указатель на число и тут же разыменовать его.</p>
+<p>P.P.S. А является ли помехой что секция text, в которой и лежит delta, должно являться read only?</p>
+<p>ВНИМАНИЕ! Отправьте только последовательность команд GDB, стандартный ввод будет подменен.</p>
+<p> </p></body></html>
