@@ -17,7 +17,7 @@ ctrl + x + o to change window
 la src
 в eflag лежат поднятые флаги
 можно писать n а не next И по аналогии с другими
-
+брейкпоинтыы ставить !!!!!!!!!!!!!!!!!!
 
 # Create .kks-workspace in current directory to mark kks workspace root
 kks init

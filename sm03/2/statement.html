@@ -1,0 +1,22 @@
+<html><head><meta charset="utf-8"/></head>
+<body>
+<table border="1"><tr><td><b>Time limit:</b></td><td><tt>1 s</tt></td></tr>
+<tr><td><b>Real time limit:</b></td><td><tt>5 s</tt></td></tr>
+<tr><td><b>Memory limit:</b></td><td><tt>64M</tt></td></tr>
+</table>
+<h3>Problem sm03-2: asm/stack/recursion</h3>
+<p>Напишите функцию <code>unsigned long long ackermann(unsigned long long m, unsigned long long n)</code> вычисляющую значение функции Аккермана в точке m, n.</p>
+<p>Функция определена следующим образом:</p>
+<ol>
+<li>n + 1, если m = 0</li>
+<li>ackermann(m - 1, 1), если m &gt; 0, n = 0</li>
+<li>ackermann(m - 1, ackermann(m, n - 1)), если m &gt; 0, n &gt; 0</li>
+</ol>
+<p>Никаких оптимизаций и быстрых вычислений не требуется</p>
+<h3>Examples</h3><h4>Input</h4>
+<pre>1 1
+            </pre>
+<h4>Output</h4>
+<pre>3
+            </pre>
+<p> </p></body></html>
