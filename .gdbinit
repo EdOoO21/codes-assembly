@@ -1,2 +1,2 @@
 set disassembly-flavor intel
-la src
+echo "source ~/.gdbinit-gef.py" >> ~/.gdbinit
