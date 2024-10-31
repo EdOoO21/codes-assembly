@@ -16,6 +16,9 @@ source ~/.gdbinit-gef.py
 
 gdb
 
+x/10dw &indexes
+смотреть массив по адресу
+
 la next
 la layout
 enter to repeat last cmd
@@ -107,3 +110,14 @@ kks submit -p sm02-3 ./code/main.c
 kks hide sm01
 kks hide --all
 kks unhide sm03 kr01
+
+0 0 1
+1 1
+1
+1 2
+-1
+0 2 3
+0 3 4
+0 3 5
+1 5
+4
