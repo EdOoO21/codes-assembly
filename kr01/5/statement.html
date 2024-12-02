@@ -1,0 +1,19 @@
+<html><head><meta charset="utf-8"/></head>
+<body>
+<table border="1"><tr><td><b>Time limit:</b></td><td><tt>1 s</tt></td></tr>
+<tr><td><b>Real time limit:</b></td><td><tt>5 s</tt></td></tr>
+<tr><td><b>Memory limit:</b></td><td><tt>64M</tt></td></tr>
+</table>
+<h3>Problem kr01-5: asm/hacks/ccg</h3>
+<p>Дана подпрограмма на языке ассемблера архитектуры x86_64:</p>
+<pre>func:
+    mov    rsi, [8 + rsp]
+    mov    rax, [16 + rsp]
+    lea    rax, [rsi + 8 * rax]
+    mov    rsi, [rax]
+    add    rax, [8 + rsi]
+    add    rax, [24 + rsp]
+    ret
+</pre>
+<p>Напишите эту подпрограмму на языке Си.</p>
+<p> </p></body></html>

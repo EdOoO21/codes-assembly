@@ -1,0 +1,21 @@
+<html><head><meta charset="utf-8"/></head>
+<body>
+<table border="1"><tr><td><b>Time limit:</b></td><td><tt>1 s</tt></td></tr>
+<tr><td><b>Real time limit:</b></td><td><tt>5 s</tt></td></tr>
+<tr><td><b>Memory limit:</b></td><td><tt>64M</tt></td></tr>
+</table>
+<h3>Problem bn02-1: c/floats/fp16</h3>
+<p>В этой задаче мы будем работать с 16-битным представлением вещественных чисел, известным как FP16 или
+            half precision — <a href="https://ru.wikipedia.org/wiki/Число_половинной_точности">число половинной точности стандарта соответствующего numpy.float16</a>.
+            В таком представлении 1 бит знака, 5 бит экспоненты (которая хранится с bias 15) и 10 бит дробной части мантиссы.
+            Хранить такие числа мы будем в переменных типа uint16_t.</p>
+<p>Напишите следующие функции для работы с числами:</p>
+<p><code>uint16_t fp16_cast(unsigned int x)</code> - преобразующее обычное беззнаковое 32 битное число в число с плавающей точкой</p>
+<p><code>uint16_t fp16_mul2(uint16_t x)</code> - умножающее fp16 на 2</p>
+<p><code>uint16_t fp16_div2(uint16_t x)</code> - делящее fp16 на 2</p>
+<p><code>uint16_t fp16_neg(uint16_t x)</code> - меняющее знак числа</p>
+<p><code>uint16_t fp16_add(uint16_t x, uint16_t y)</code> - складывающее произвольные числа fp16</p>
+<p><code>int fp16_cmp(uint16_t x, uint16_t y)</code> - возвращающее -1 (x &lt; y) 0 (x == y) или 1 (x &gt; y).</p>
+<p>В данной задаче пользоваться любыми нецелочисленными типами запрещено</p>
+<p>Удобный <a href="https://evanw.github.io/float-toy/">сайт</a> для просмотра битовой записи</p>
+<p> </p></body></html>

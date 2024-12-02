@@ -1,0 +1,16 @@
+<html><head><meta charset="utf-8"/></head>
+<body>
+<table border="1"><tr><td><b>Time limit:</b></td><td><tt>1 s</tt></td></tr>
+<tr><td><b>Real time limit:</b></td><td><tt>5 s</tt></td></tr>
+<tr><td><b>Memory limit:</b></td><td><tt>64M</tt></td></tr>
+</table>
+<h3>Problem sm07-3: c/strings/hamming-code</h3>
+<p>Напишите функции encode и decode кодирующие и декодирующие данные таким образом, чтобы случайный один (или ноль) <a href="https://en.wikipedia.org/wiki/RAM_parity">битфлип</a> не мог помешать их восстановить</p>
+<p><code>void encode(const void *data, void *encoded, size_t n)</code> кодирует n байт по указателю data в указатель encoded</p>
+<p><code>void decode(const void *encoded, void *data, size_t n)</code> декодирует n байт из указателя encoded в указатель data (n - размер изначальных данных до кодирования)</p>
+<p>Гарантируется что массив data содержит ровно n байт</p>
+<p>Гарантируется что массив encoded содержит ровно 2n байт</p>
+<p>Рекомендуется использовать <a href="https://en.wikipedia.org/wiki/Hamming_code">Код Хэмминга</a></p>
+<p>В задаче присутствуют тесты на производительность. Ваш код должен достаточно быстро работать как на коротких так и на длинных входных данных.</p>
+<p>В данной задаче можно получить частичные баллы</p>
+<p> </p></body></html>
